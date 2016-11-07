@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="welcomePrimefaces.xhtml">
+            <ui:define name="body">
+                <p:panelGrid style="width: 100%">
+                    <p:row> 
+                        <p:column style="width:10%">
+                            <h:graphicImage class="driverPhoto" library="images" name="driver.jpg" />
+                        </p:column>
+                        <p:column style="width:90%">
+                            <f:facet name="header">INFORMACIÓN BÁSICA</f:facet>
+                            <p:panelGrid columns="4" style="width: 100%;">
+                                <p:row>                                    
+                                    <p:column style="width: 25%">
+                                        <h:outputLabel value="TIPO DOCUMENTO: "/>   
+                                    </p:column>
+                                    <p:column style="width: 25%">
+                                        <h:outputText value="C.C."/>
+                                    </p:column>
+                                    <p:column style="width: 25%">
+                                        <h:outputLabel value="N° DOCUMENTO: "/>
+                                    </p:column>
+                                    <p:column style="width: 25%">
+                                        <h:outputText value="101875673"/>
+                                    </p:column>
+                                </p:row>                             
+                            </p:panelGrid>
+                            <p:panelGrid columns="2" style="width: 100%">
+                                <h:outputLabel value="NOMBRE: "/>
+                                <h:outputText value="MIGUEL FERNANDO CAMARGO MIRANDA"/>
+                            </p:panelGrid>  
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

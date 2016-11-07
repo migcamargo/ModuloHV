@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="welcomePrimefaces.xhtml">
+            <ui:define name="body">
+                <h:form>
+                    <p:dataTable id="driverDT" var="driver" 
+                                 value="#{dtSelectionView.drivers}" 
+                                 selectionMode="single" 
+                                 selection="#{dtSelectionView.selectedDriver}" 
+                                 rowKey="#{driver.id}"
+                                 emptyMessage="No se han encontrado driveres con los criterios dados">
+                
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Buscar en todos los campos: " />
+                                <p:inputText id="globalFilter" 
+                                             onkeyup="PF('driverDT').filter()" 
+                                             style="width:150px" 
+                                             placeholder="Inserte palabra clave"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column filterBy="#{driver.id}" 
+                                  headerText="N° Identificación" 
+                                  footerText="N° Identificación" 
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{driver.id}" />  
+                        </p:column>
+
+                        <p:column filterBy="#{driver.name}" 
+                                  headerText="Nombre" 
+                                  footerText="Nombre" 
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{driver.name}" />
+                        </p:column>
+
+                        <p:column filterBy="#{driver.city}" 
+                                  headerText="Ciudad" 
+                                  footerText="Ciudad" 
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{driver.city}" />
+                        </p:column>
+
+                        <p:column filterBy="#{driver.address}" 
+                                  headerText="Dirección" 
+                                  footerText="Dirección" 
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{driver.address}" />
+                        </p:column>
+                        <p:column filterBy="#{driver.neighborhood}" 
+                                  headerText="Barrio"
+                                  footerText="Barrio" 
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{driver.neighborhood}" />
+                        </p:column>
+
+                        <p:column filterBy="#{driver.mobilephone}" 
+                                  headerText="Tel. Móvil" 
+                                  footerText="Tel. Móvil" 
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{driver.mobilephone}" />
+                        </p:column>
+
+                        <p:column filterBy="#{driver.telephone}"
+                                  headerText="Tel. Fijo" 
+                                  footerText="Tel. Fijo" 
+                                  filterFunction="contains">
+                            <h:outputText value="#{driver.telephone}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton process="driverDT" 
+                                             icon="ui-icon-search"  
+                                             value="Ver" 
+                                             oncomplete="PF('carDialog').show()" />
+                        </f:facet>
+                    </p:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

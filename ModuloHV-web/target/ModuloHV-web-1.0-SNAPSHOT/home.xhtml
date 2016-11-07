@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="welcomePrimefaces.xhtml">
+            <ui:define name="body">
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
+                <h:panelGrid columns="3">
+                    <p:outputLabel for="advanced" value="Buscar conductor: " />
+                    <p:selectOneListbox id="advanced" filter="true" filterMatchMode="contains">
+                        <f:selectItems var="theme"/>
+                        <p:column>
+                            <h:outputText value="" />
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="" />
+                        </p:column>
+                    </p:selectOneListbox>
+                    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+                </h:panelGrid>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

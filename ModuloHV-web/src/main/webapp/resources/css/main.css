@@ -1,0 +1,56 @@
+/* 
+    Created on : Sep 21, 2016, 12:07:50 PM
+    Author     : miguel.camargo
+*/
+@font-face {
+    font-family: Cabin;
+    src: url('../font/Cabin/Cabin-Bold.ttf');
+    src: url('../font/Cabin/Cabin-BoldItalic.ttf');
+    src: url('../font/Cabin/Cabin-Italic.ttf');
+    src: url('../font/Cabin/Cabin-Medium.ttf');
+    src: url('../font/Cabin/Cabin-MediumItalic.ttf');
+    src: url('../font/Cabin/Cabin-Regular.ttf');
+    src: url('../font/Cabin/Cabin-SemiBold.ttf');
+    src: url('../font/Cabin/Cabin-SemiBoldItalic.ttf');
+}
+
+
+
+.body{
+    font-family: Cabin;
+    font-size: 12px;
+}
+
+.ui-widget-content{
+    background-color: transparent;
+}
+
+.ui-layout-south {
+    background-color: #3366ff;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ui-layout-south p {
+    color: #ffffff;
+}
+
+.logo_image {
+    float: left;
+    width: 100px;
+}
+
+.fixed-size {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.driverPhoto{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 160px;
+}
+
+

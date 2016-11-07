@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="welcomePrimefaces.xhtml">
+            <ui:define name="body">
+                <h:form>
+                    <p:dataTable id="remolqueDT" var="remolque" 
+                                 value="#{dtSelectionView.remolques}" 
+                                 selectionMode="single" 
+                                 selection="#{dtSelectionView.selectedVehicle}" 
+                                 rowKey="#{remolque.id}"
+                                 emptyMessage="No se han encontrado remolques con los criterios dados"
+                                 scrollable="true"
+                                 styleClass="fixed-size">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Buscar en todos los campos: " />
+                                <p:inputText id="globalFilter" 
+                                             onkeyup="PF('remolqueDT').filter()" 
+                                             style="width:150px" 
+                                             placeholder="Inserte palabra clave"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column filterBy="#{remolque.id}" 
+                                  headerText="Núm." 
+                                  footerText="Núm."
+                                  filterMatchMode="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.id}" />  
+                        </p:column>
+                        <p:column filterBy="#{remolque.plaqueta}" 
+                                  headerText="N° Plaqueta" 
+                                  footerText="N° Plaqueta"
+                                  filterMatchMode="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.plaqueta}" />  
+                        </p:column>
+
+                        <p:column filterBy="#{remolque.fecha}" 
+                                  headerText="Fecha" 
+                                  footerText="Fecha" 
+                                  filterMatchMode="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.fecha}" />
+                        </p:column>
+
+                        <p:column filterBy="#{remolque.tipoTramite}" 
+                                  headerText="Tipo Tramite" 
+                                  footerText="Tipo Tramite" 
+                                  filterMatchMode="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.tipoTramite}" />
+                        </p:column>
+
+                        <p:column filterBy="#{remolque.tipoCarroceria}" 
+                                  headerText="Tipo Carroceria" 
+                                  footerText="Tipo Carroceria" 
+                                  filterMatchMode="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.tipoCarroceria}" />
+                        </p:column>
+                        <p:column filterBy="#{remolque.modelo}" 
+                                  headerText="Modelo"
+                                  footerText="Modelo" 
+                                  filterMatchMode="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.modelo}" />
+                        </p:column>
+                        <p:column filterBy="#{remolque.numeroEjes}"
+                                  headerText="Número Ejes" 
+                                  footerText="Número Ejes" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.numeroEjes}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.marca}"
+                                  headerText="Marca" 
+                                  footerText="Marca" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.marca}"/>
+                        </p:column>
+
+
+                        <p:column filterBy="#{remolque.referencia}"
+                                  headerText="Referencia" 
+                                  footerText="Referencia"
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.referencia}"/>
+                        </p:column>
+
+                        <p:column filterBy="#{remolque.ancho}"
+                                  headerText="Ancho" 
+                                  footerText="Ancho" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.ancho}"/>
+                        </p:column>
+
+                        <p:column filterBy="#{remolque.alto}"
+                                  headerText="Alto" 
+                                  footerText="Alto" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.alto}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.largo}"
+                                  headerText="Largo" 
+                                  footerText="Largo" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.largo}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.volumenPosterior}"
+                                  headerText="Vol. Posterior" 
+                                  footerText="Vol. Posterior" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.volumenPosterior}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.pesoVacio}"
+                                  headerText="Peso Vacío" 
+                                  footerText="Peso Vacío" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.pesoVacio}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.capacidadDiseno}"
+                                  headerText="Capacidad de Diseño" 
+                                  footerText="Capacidad de Diseño" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.capacidadDiseno}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.propietario}"
+                                  headerText="Propietario" 
+                                  footerText="Propietario" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.propietario}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.propietario}"
+                                  headerText="Propietario" 
+                                  footerText="Propietario" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.propietario}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.tipoDocumento}"
+                                  headerText="Tipo Documento" 
+                                  footerText="Tipo Documento" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.tipoDocumento}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.numeroDocumento}"
+                                  headerText="Número Documento" 
+                                  footerText="Número Documento" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.numeroDocumento}"/>
+                        </p:column>
+                        <p:column filterBy="#{remolque.direccionTerritorial}"
+                                  headerText="Dirección Territorial" 
+                                  footerText="Dirección Territorial" 
+                                  filterFunction="contains"
+                                  style="width:120px">
+                            <h:outputText value="#{remolque.direccionTerritorial}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton process="remolqueDT" 
+                                             icon="ui-icon-search"  
+                                             value="Ver" 
+                                             oncomplete="PF('carDialog').show()" />
+                        </f:facet>
+                    </p:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
